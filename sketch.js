@@ -32,6 +32,12 @@ function draw(){
   drawFace();
   drawBangs();
   drawEars();
+  drawNeck();
+  drawEyebrows();
+  drawEyes();
+  drawEyelashes();
+  drawNose();
+  drawMouth();
 }
 //text for debug
 function drawDebugInfo(){
@@ -47,8 +53,9 @@ function keyTyped(){
 
 //draw hair
 function drawHair(){
+	noStroke();
 	fill(hairColor);
-	arc(250,250,240,380,QUARTER_PI+HALF_PI,QUARTER_PI,OPEN);
+	arc(250,265,240,380,QUARTER_PI+HALF_PI,QUARTER_PI,OPEN);
 }
 
 //draw face shape
@@ -76,9 +83,82 @@ function drawEars(){
 	arc(width/2-170/2+5,height/2-10,30,50,QUARTER_PI,PI+HALF_PI);
 	//right ear
 	arc(width/2+170/2-5,height/2-10,30,50,-HALF_PI,HALF_PI+QUARTER_PI);
+}
+
+//add neck
+function drawNeck(){
+	fill(skinColor);
+	rect(width/2-20,300,40,70,20);
+}
+
+//add eyebrows
+function drawEyebrows(){
+	stroke(0);
+	strokeWeight(4);
+	noFill();
+	//left
+	arc(width/2 - 40, 215, 40, 10, PI, TWO_PI,OPEN);
+	//right
+	arc(width/2 + 40, 215, 40, 10, PI, TWO_PI,OPEN);
+}
+//add eyes 
+function drawEyes(){
+	stroke(0);
+	strokeWeight(2);
+	noFill();
+	//top lines left than right
+	arc(width/2 - 40, 228, 40, 15, PI, TWO_PI,OPEN);
+	arc(width/2 + 40, 228, 40, 15, PI, TWO_PI,OPEN);
+	//black circle left than right
+	fill(eyeColor);
+	noStroke();
+	circle(width/2-30,232,20);
+	circle(width/2+30,232,20);
+	//white small circle 
+	fill(255);
+	circle(width/2-28,233,5);
+	circle(width/2+28,233,5);
+}
+
+//add eyelashes
+function drawEyelashes(){
+	stroke(0);
+	strokeWeight(2);
+	noFill();
+	//left
+	line(193,224,188,220);
+	line(189,228,183,224);
+	//right
+	line(width-193,224,width-188,220);
+	line(width-189,228,width-183,224);
+}
+
+//add nose 
+function drawNose(){
+	arc(width/2,259,12,10,HALF_PI-QUARTER_PI/2,HALF_PI+PI,OPEN);
+}
+
+//add mouth
+function drawMouth(){
+	fill(0);
+	noStroke();
+	arc(width/2,275,50,35,0,PI);
+}
+
+//add teeth
+function drawTeeth(){
 
 }
 
+//add tongue
+function drawTongue(){
+
+}
+
+//add shirt
+function drawShirt(){
+
+}
 
 
 
