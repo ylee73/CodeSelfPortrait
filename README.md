@@ -4,7 +4,7 @@
 
 
 ### Overview
-This is a code for my self-portrait using P5.js
+This is a code for my self-portrait using P5.js while recreating the drawing of myself. 
 
 
 ### Technical Details
