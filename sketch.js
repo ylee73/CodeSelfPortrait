@@ -32,7 +32,7 @@ function setup() {
   //Set color variables
   hairColor = color(87, 65, 47);
   skinColor = color(253, 228, 200);
-  eyeColor = color(45, 34, 30);
+  eyeColor = color(53,40,30);
   teethColor = color(255);
   tongueColor = color(255, 192, 203);
   shirtColor = color(169);
