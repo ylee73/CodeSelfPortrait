@@ -7,6 +7,10 @@ var teethColor;
 var tongueColor;
 var shirtColor;
 
+//Global Variables (location)
+var midX;
+var midY;
+
 //Global Variable for debug mode
 var gDugMode = true;
 
@@ -20,6 +24,9 @@ function setup() {
   teethColor = color(255);
   tongueColor = color(255,192,203);
   shirtColor = color(169);
+  //Set location variables
+  midX = width/2;
+  midY = height/2;
  }
 
 function draw(){
@@ -38,6 +45,10 @@ function draw(){
   drawEyelashes();
   drawNose();
   drawMouth();
+  drawTeeth();
+  drawTongue();
+  drawShirt();
+  drawNeck();
 }
 //text for debug
 function drawDebugInfo(){
@@ -55,21 +66,21 @@ function keyTyped(){
 function drawHair(){
 	noStroke();
 	fill(hairColor);
-	arc(250,265,240,380,QUARTER_PI+HALF_PI,QUARTER_PI,OPEN);
+	arc(midX,265,240,380,QUARTER_PI+HALF_PI,QUARTER_PI,OPEN);
 }
 
 //draw face shape
 function drawFace(){
 	noStroke();
 	fill(skinColor);
-	ellipse(250,205,170,220);
+	ellipse(midX,205,170,220);
 }
 
 //add bangs
 function drawBangs(){
 	fill(hairColor);
 	//top part of bang
-	arc(250,160,160,160,PI,0);
+	arc(midX,160,160,160,PI,0);
 	//left bang
 	arc(190,140,160,135,0,QUARTER_PI+HALF_PI);
 	//right bang
@@ -80,15 +91,15 @@ function drawBangs(){
 function drawEars(){
 	fill(skinColor)
 	//left ear
-	arc(width/2-170/2+5,height/2-10,30,50,QUARTER_PI,PI+HALF_PI);
+	arc(midX-170/2+5,midY-10,30,50,QUARTER_PI,PI+HALF_PI);
 	//right ear
-	arc(width/2+170/2-5,height/2-10,30,50,-HALF_PI,HALF_PI+QUARTER_PI);
+	arc(midX+170/2-5,midY-10,30,50,-HALF_PI,HALF_PI+QUARTER_PI);
 }
 
 //add neck
 function drawNeck(){
 	fill(skinColor);
-	rect(width/2-20,300,40,70,20);
+	rect(midX-25,300,50,70,20);
 }
 
 //add eyebrows
@@ -97,9 +108,9 @@ function drawEyebrows(){
 	strokeWeight(4);
 	noFill();
 	//left
-	arc(width/2 - 40, 215, 40, 10, PI, TWO_PI,OPEN);
+	arc(midX - 40, 215, 40, 10, PI, TWO_PI,OPEN);
 	//right
-	arc(width/2 + 40, 215, 40, 10, PI, TWO_PI,OPEN);
+	arc(midX + 40, 215, 40, 10, PI, TWO_PI,OPEN);
 }
 //add eyes 
 function drawEyes(){
@@ -107,17 +118,17 @@ function drawEyes(){
 	strokeWeight(2);
 	noFill();
 	//top lines left than right
-	arc(width/2 - 40, 228, 40, 15, PI, TWO_PI,OPEN);
-	arc(width/2 + 40, 228, 40, 15, PI, TWO_PI,OPEN);
+	arc(midX - 40, 228, 40, 15, PI, TWO_PI,OPEN);
+	arc(midX + 40, 228, 40, 15, PI, TWO_PI,OPEN);
 	//black circle left than right
 	fill(eyeColor);
 	noStroke();
-	circle(width/2-30,232,20);
-	circle(width/2+30,232,20);
+	circle(midX-30,232,20);
+	circle(midX+30,232,20);
 	//white small circle 
 	fill(255);
-	circle(width/2-28,233,5);
-	circle(width/2+28,233,5);
+	circle(midX-28,233,5);
+	circle(midX+28,233,5);
 }
 
 //add eyelashes
@@ -135,28 +146,41 @@ function drawEyelashes(){
 
 //add nose 
 function drawNose(){
-	arc(width/2,259,12,10,HALF_PI-QUARTER_PI/2,HALF_PI+PI,OPEN);
+	arc(midX,259,12,10,HALF_PI-QUARTER_PI/2,HALF_PI+PI,OPEN);
 }
 
 //add mouth
 function drawMouth(){
 	fill(0);
 	noStroke();
-	arc(width/2,275,50,35,0,PI);
+	arc(midX,275,50,35,0,PI);
 }
 
 //add teeth
 function drawTeeth(){
+	fill(255);
+	noStroke();
+	rect(midX-12,275,24,7,2);
 
+	strokeWeight(1);
+	fill(0);
+	stroke(0);
+	line(midX,275,midX,282);
+	line(midX+6,275,midX+6,282);
+	line(midX-6,275,midX-6,282);
 }
 
 //add tongue
 function drawTongue(){
-
+	noStroke();
+	fill(tongueColor);
+	ellipse(midX,290,16,7);
 }
 
 //add shirt
 function drawShirt(){
+	fill(shirtColor);
+	rect(midX-150,355,300,300,80);
 
 }
 
